@@ -10,7 +10,8 @@ phases:
     commands:
       - "cd ${CODEBUILD_SRC_DIR}/${CODE_SRC_DIR}/html"
       - "echo ## S3 WEBSITE DEPLOY : Starting ...."
-      - "aws s3 sync dist $S3_BUCKET"
+      - "ls -la"
+      - "aws s3 sync . s3://$S3_BUCKET/ --delete"
 
 artifacts:
   files:
